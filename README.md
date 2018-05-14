@@ -1,4 +1,4 @@
-# Docker LAMP環境構築
+# LAMP環境構築
 Dockerを使用したPHPの開発環境(LAMP)を構築
 
 ### 使用したイメージ
