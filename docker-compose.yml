@@ -1,0 +1,35 @@
+version: '2'
+services:
+
+### APACHE + PHP ###
+    web:
+      build: ./web
+      container_name: php7.1
+      privileged: true
+      links:
+        - mysql
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - ./src:/var/www/html:cached 
+
+### DB ###
+    mysql:
+      build: ./db
+      container_name: mysql5.7
+      ports: 
+        - "3036:3036"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+        - MYSQL_DATABASE=test
+        - MYSQL_USER=test
+        - MYSQL_PASSWORD=test
+      volumes_from:
+        - data
+      privileged: true
+
+### •Û‘¶—Ìˆæ ###
+    data:
+      image: busybox
+      container_name: data_container
