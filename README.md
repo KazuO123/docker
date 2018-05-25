@@ -22,6 +22,7 @@ Dockerを使用したPHPの開発環境(LAMP)を構築
 3. docker-compose up -d
 ```
 ## PHPINFO
-| docker for windows (or mac) | http://localhost |
+| ツール | アクセス |
 |:-----------|:-----------|
+| docker for windows (or mac) | http://localhost |
 | docker toolbox | http://192.168.99.100 |
