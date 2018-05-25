@@ -2,12 +2,11 @@ version: '2'
 services:
 
 ### APACHE + PHP ###
-    web:
+    webserver:
       build: ./web
-      container_name: php7.1
-      privileged: true
+      container_name: php_7.1
       links:
-        - mysql
+        - dbserver
       ports:
         - "80:80"
         - "443:443"
@@ -15,9 +14,9 @@ services:
         - ./src:/var/www/html:cached 
 
 ### DB ###
-    mysql:
+    dbserver:
       build: ./db
-      container_name: mysql5.7
+      container_name: mysql_5.7
       ports: 
         - "3036:3036"
       environment:
@@ -27,7 +26,6 @@ services:
         - MYSQL_PASSWORD=test
       volumes_from:
         - data
-      privileged: true
 
 ### 保存領域 ###
     data:
